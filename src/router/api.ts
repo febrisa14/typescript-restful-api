@@ -22,4 +22,4 @@ apiRouter.delete("/api/contacts/:contactId(\\d+)", ContactController.deleteConta
 apiRouter.get("/api/contacts", ContactController.searchContact)
 
 //api address
-apiRouter.post("/api/address", AddressController.createAddress)
+apiRouter.post("/api/contacts/:contactId(\\d+)/address", AddressController.createAddress)

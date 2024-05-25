@@ -21,7 +21,7 @@ export const AddressUnitTest = () => {
                 const contact = await ContactTest.get()
 
                 const response = await supertest(app)
-                    .post("/api/address")
+                    .post(`/api/contacts/${contact.id}/address`)
                     .set("Authorization", "test")
                     .send({
                         street: "street test",
@@ -29,7 +29,6 @@ export const AddressUnitTest = () => {
                         province: "province test",
                         country: "country test",
                         postal_code: "23231",
-                        contact_id: contact.id
                     })
 
                 logger.debug(response.body)
@@ -41,7 +40,7 @@ export const AddressUnitTest = () => {
                 const contact = await ContactTest.get()
 
                 const response = await supertest(app)
-                    .post("/api/address")
+                    .post(`/api/contacts/${contact.id + 1}/address`)
                     .set("Authorization", "test")
                     .send({
                         street: "street test",
@@ -49,7 +48,6 @@ export const AddressUnitTest = () => {
                         province: "province test",
                         country: "country test",
                         postal_code: "23231",
-                        contact_id: contact.id + 1
                     })
 
                 logger.debug(response.body)

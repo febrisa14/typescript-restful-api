@@ -79,22 +79,11 @@ export class ContactTest {
 
 export class AddressTest {
     static async deleteAll() {
-        const contact = await prisma.contact.findFirst({
-            where: {
-                first_name: "contact test",
-                last_name: "hello",
-                email: "test@email.com",
-                username: "test"
-            }
-        })
-
-        if (!contact) {
-            throw new Error("Contact not found")
-        }
-
         await prisma.address.deleteMany({
             where: {
-                contact_id: contact.id
+                Contact: {
+                    username: "test"
+                }
             }
         })
     }
