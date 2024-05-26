@@ -54,7 +54,7 @@ export const ContactUnitTest = () => {
             })
         })
 
-        describe("PATCH /api/contacts", () => {
+        describe("PUT /api/contacts", () => {
             beforeEach(async () => {
                 await UserTest.create()
                 await ContactTest.create()
@@ -69,7 +69,7 @@ export const ContactUnitTest = () => {
                 const contact = await ContactTest.get();
 
                 const response = await supertest(app)
-                    .patch(`/api/contacts/`)
+                    .put(`/api/contacts/`)
                     .set("Authorization", "test")
                     .send({
                         id: contact.id,

@@ -26,6 +26,16 @@ export type UpdateAddressRequest = {
     contact_id: number
 }
 
+export type GetAddressRequest = {
+    id: number
+    contact_id: number
+}
+
+export type DeleteAddressRequest = {
+    id: number,
+    contact_id: number
+}
+
 export function AddressResource(address: AddressResponse): AddressResponse {
     return {
         id: address.id,

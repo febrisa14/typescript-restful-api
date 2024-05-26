@@ -16,10 +16,13 @@ apiRouter.delete("/api/logout", UserController.logout)
 
 //api contact
 apiRouter.post("/api/contacts", ContactController.createContact)
-apiRouter.patch("/api/contacts", ContactController.updateContact)
+apiRouter.put("/api/contacts", ContactController.updateContact)
 apiRouter.get("/api/contacts/:contactId(\\d+)", ContactController.getContact)
 apiRouter.delete("/api/contacts/:contactId(\\d+)", ContactController.deleteContact)
 apiRouter.get("/api/contacts", ContactController.searchContact)
 
 //api address
 apiRouter.post("/api/contacts/:contactId(\\d+)/address", AddressController.createAddress)
+apiRouter.get("/api/contacts/:contactId(\\d+)/address/:addressId(\\d+)", AddressController.getAddress)
+apiRouter.put("/api/contacts/:contactId(\\d+)/address/:addressId(\\d+)", AddressController.updateAddress)
+apiRouter.delete("/api/contacts/:contactId(\\d+)/address/:addressId(\\d+)", AddressController.deleteAddress)
